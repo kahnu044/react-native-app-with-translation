@@ -1,24 +1,25 @@
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
+ * Sample React Native App With Translation
+ * https://github.com/kahnu044/react-native-app-with-translation
  *
  * @format
  */
-
+import 'intl';
+import 'intl-pluralrules';
 import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+
+import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
+
+import { I18nextProvider } from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 const App = () => {
+  const {t , i18n} = useTranslation();
+
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.centeredView}>
-        <Text style={styles.textView}>Welcome To DeveloperNoob</Text>
-      </View>
+      <View style={styles.centeredView}></View>
+      <Text style={styles.textView}>{t('welcome')}</Text>
     </SafeAreaView>
   );
 };
@@ -33,12 +34,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  textView:{
+  textView: {
     fontSize: 24,
-    color: 'red'
-  }
+    color: '#748ef6',
+    fontWeight: 'bold'
+  },
 });
 
 export default App;
-
-
